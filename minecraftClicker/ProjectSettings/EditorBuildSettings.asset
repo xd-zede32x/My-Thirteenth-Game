@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: df41379be7480cb48b5bc323fd29f3a0
   - enabled: 1
-    path: Assets/Scenes/Cliker.unity
+    path: Assets/Scenes/MinecraftClicker.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "Cliker")
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "MinecraftClicker")
         {
             SceneManager.LoadScene(0);
             _animator.SetTrigger(_hideAnimation);
