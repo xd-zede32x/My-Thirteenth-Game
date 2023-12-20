@@ -13,7 +13,7 @@ public class Audio : MonoBehaviour
     {
         foreach (var audioSource in _audioSources)
         {
-            if (audioSource.volume > 0.1f)
+            if (audioSource.volume >= 0.1f)
             {
                 audioSource.volume = 0f;
                 IsActiveImage(_musicOff);
@@ -22,7 +22,7 @@ public class Audio : MonoBehaviour
 
             else if (audioSource.volume == 0f)
             {
-                audioSource.volume = 2f;
+                audioSource.volume = 0.1f;
                 IsActiveImage(_musicOn);
                 _text.text = "Music On";
             }

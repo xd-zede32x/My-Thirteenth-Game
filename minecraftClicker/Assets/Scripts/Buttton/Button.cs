@@ -4,49 +4,63 @@ using System.Collections;
 
 public class Button : MonoBehaviour
 {
-    [SerializeField] private int _score = 0;
+    [SerializeField] private double _score = 0;
     [SerializeField] private Text _scoreText;
     [SerializeField] private Text[] _priceText;
     [SerializeField] private int[] _constBonus;
     [SerializeField] private int[] _priceProduct;
-    [SerializeField] private AudioClip[] _audioClips;
     [SerializeField] private Text[] _achievementsText;
     [SerializeField] private Text[] _achievementsConst;
     [SerializeField] private Text _achievementsClicksCount;
-
-    private int _clickScore = 1;
-    private AudioSource _audioSources;
-    private SaveGame _saveGame = new SaveGame();
-
     [SerializeField] private int _achievementsMax;
+
+    public double Score
+    {
+        get
+        {
+            return _score;
+        }
+
+        set
+        {
+            _score = value;
+        }
+    }
+    public double ClickScore
+    {
+        get
+        {
+            return _clickScore;
+        }
+
+        set
+        {
+            _clickScore = value;
+        }
+    }
+
+    private double _clickScore = 1;
+    private Save _save = new Save();
     private bool _isAchievements = true;
 
     private void Awake()
     {
-        if (PlayerPrefs.HasKey("SaveGame"))
+        if (PlayerPrefs.HasKey("Save"))
         {
-            _saveGame = JsonUtility.FromJson<SaveGame>(PlayerPrefs.GetString("SaveGame"));
-            _score = _saveGame.Score;
-            _clickScore = _saveGame.ClickScore;
-            _achievementsMax = _saveGame.AchievementMax;
-            _isAchievements = _saveGame.IsAchievement;
+            _save = JsonUtility.FromJson<Save>(PlayerPrefs.GetString("Save"));
+
+            _score = _save.Score;
+            _clickScore = _save.ClickScore;
+            _achievementsMax = _save.AchievementMax;
+            _isAchievements = _save.IsAchievement;
 
             for (int index = 0; index < 1; index++)
-            {
-                _constBonus[index] = _saveGame.ConstBonus[index];
-            }
-
-            for (int index = 0; index < 2; index++)
-            {
-                _priceProduct[index] = _saveGame.PriceProduct[index];
-                _priceText[index].text = _saveGame.PriceProduct[index] + "$";
-            }
+                _constBonus[index] = _save.ConstBonus[index];
         }
     }
 
     private void Start()
     {
-        _audioSources = GetComponent<AudioSource>();
         StartCoroutine(Bonus());
     }
 
@@ -56,14 +70,10 @@ public class Button : MonoBehaviour
         _achievementsClicksCount.text = "Click " + _achievementsMax + " /100 once";
 
         if (_isAchievements == false)
-        {
             _achievementsConst[0].text = "Received";
-        }
 
         if (_achievementsMax == 100)
-        {
             _achievementsText[0].text = "Complete";
-        }
     }
 
     public void OnClickButton()
@@ -71,26 +81,7 @@ public class Button : MonoBehaviour
         _score += _clickScore;
 
         if (_isAchievements == true && _achievementsMax <= 100)
-        {
             _achievementsMax++;
-        }
-    }
-
-    public void OnClickByLevel()
-    {
-        if (_score >= _priceProduct[0])
-        {
-            _score -= _priceProduct[0];
-            _priceProduct[0] *= 2;
-            _clickScore *= 2;
-            _priceText[0].text = _priceProduct[0] + "$";
-            AudioPlayback(0);
-        }
-
-        else
-        {
-            AudioPlayback(1);
-        }
     }
 
     public void OnClickBuyBonus()
@@ -101,12 +92,6 @@ public class Button : MonoBehaviour
             _priceProduct[1] *= 2;
             _constBonus[0] += 2;
             _priceText[1].text = _priceProduct[1] + "$";
-            AudioPlayback(0);
-        }
-
-        else
-        {
-            AudioPlayback(1);
         }
     }
 
@@ -114,7 +99,7 @@ public class Button : MonoBehaviour
     {
         if (_isAchievements == true && _achievementsMax == 100)
         {
-            _score += 200;          
+            _score += 200;
             _isAchievements = false;
         }
     }
@@ -128,28 +113,17 @@ public class Button : MonoBehaviour
         }
     }
 
-    private void AudioPlayback(int index)
-    {
-        _audioSources.PlayOneShot(_audioClips[index]);
-    }
-
     private void OnApplicationQuit()
     {
-        _saveGame.Score = _score;
-        _saveGame.ClickScore = _clickScore;
-        _saveGame.ConstBonus = new int[1];
-        _saveGame.PriceProduct = new int[2];
-        _saveGame.IsAchievement = _isAchievements;
-        _saveGame.AchievementMax = _achievementsMax;
+        _save.Score = _score;
+        _save.ClickScore = _clickScore;
+        _save.ConstBonus = new int[1];
+        _save.IsAchievement = _isAchievements;
+        _save.AchievementMax = _achievementsMax;
 
         for (int bonus = 0; bonus < 1; bonus++)
-            _saveGame.ConstBonus[bonus] = _constBonus[bonus];
+            _save.ConstBonus[bonus] = _constBonus[bonus];
 
-
-        for (int product = 0; product < 2; product++)
-            _saveGame.PriceProduct[product] = _priceProduct[product];
-
-
-        PlayerPrefs.SetString("SaveGame", JsonUtility.ToJson(_saveGame));
+        PlayerPrefs.SetString("Save", JsonUtility.ToJson(_save));
     }
 }

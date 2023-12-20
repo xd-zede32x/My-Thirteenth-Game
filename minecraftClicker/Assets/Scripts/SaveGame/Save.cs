@@ -1,10 +1,9 @@
 [System.Serializable]
-public class SaveGame 
+public class Save 
 {
-    public int Score;
-    public int ClickScore;
+    public double Score;
     public int[] ConstBonus;
-    public int[] PriceProduct;
+    public double ClickScore;
     public bool IsAchievement;
     public int AchievementMax;
 }
