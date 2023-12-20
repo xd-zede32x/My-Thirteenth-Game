@@ -17,7 +17,7 @@ public class Shop : MonoBehaviour
         {
             _saveShop = JsonUtility.FromJson<SaveShop>(PlayerPrefs.GetString("SaveShop"));
 
-            for (int index = 0; index < 5; index++)
+            for (int index = 0; index < 10; index++)
             {
                 _priceProduct[index] = _saveShop.PriceProduct[index];
                 _priceText[index].text = _saveShop.PriceProduct[index] + "$";
@@ -32,27 +32,52 @@ public class Shop : MonoBehaviour
 
     public void OnClickByWoodenPickaxe()
     {
-        IsBuyWooden(0, 1.5, 2);
+        IsBuyWooden(0, 1.1, 2);
     }
 
     public void OnClickByWoodenStone()
     {
-        IsBuyWooden(1, 2, 3);
+        IsBuyWooden(1, 1.2, 3);
     }
 
     public void OnClickByWoodenIron()
     {
-        IsBuyWooden(2, 3, 4);
+        IsBuyWooden(2, 1.5, 4);
     }
 
     public void OnClickByWoodenGolden()
     {
-        IsBuyWooden(3, 4, 5);
+        IsBuyWooden(3, 2, 5);
     }
 
     public void OnClickByWoodenDiamond()
     {
-        IsBuyWooden(4, 5, 6);
+        IsBuyWooden(4, 2.3, 6);
+    }
+
+    public void OnClickByWoodenEtherate()
+    {
+        IsBuyWooden(5, 2.6, 7);
+    }
+
+    public void OnClickByWoodenMagical()
+    {
+        IsBuyWooden(6, 3, 8);
+    }
+
+    public void OnClickByWoodenUndead()
+    {
+        IsBuyWooden(7, 3.5, 9);
+    }
+
+    public void OnClickByWoodenSpace()
+    {
+        IsBuyWooden(8, 4, 10);
+    }
+
+    public void OnClickByWoodenEndless()
+    {
+        IsBuyWooden(9, 5, 11);
     }
 
     private void IsBuyWooden(int index, double increaseClicks, double productMultiplications)
@@ -77,9 +102,9 @@ public class Shop : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        _saveShop.PriceProduct = new double[5];
+        _saveShop.PriceProduct = new double[10];
 
-        for (int index = 0; index < 5; index++)
+        for (int index = 0; index < 10; index++)
             _saveShop.PriceProduct[index] = _priceProduct[index];
 
         PlayerPrefs.SetString("SaveShop", JsonUtility.ToJson(_saveShop));

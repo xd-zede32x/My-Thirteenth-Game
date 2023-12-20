@@ -1,12 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonClicks : MonoBehaviour
 {
+    [SerializeField] private Sprite[] _sprites;
+
+    private Image _image;
     private RectTransform _rectTransform;
-    private float _speedRotateButton = 5f;
+    private float _speedRotateButton = 3f;
 
     private void Start()
     {
+        _image = GetComponent<Image>();
         _rectTransform = GetComponent<RectTransform>();
     }
 
@@ -17,12 +22,13 @@ public class ButtonClicks : MonoBehaviour
 
     public void ButtonDown()
     {
-        _rectTransform.transform.localScale = new Vector2(3.2f, 3.2f);
+        _rectTransform.transform.localScale = new Vector2(3.5f, 3.5f);
     }
 
     public void ButtonUp()
     {
-        _rectTransform.transform.localScale = new Vector2(2.8f, 2.8f);
+        _image.sprite = _sprites[Random.Range(0, _sprites.Length)];
+        _rectTransform.transform.localScale = new Vector2(3, 3f);
     }
 
     private void ButtonRotate(float speedRotate)
