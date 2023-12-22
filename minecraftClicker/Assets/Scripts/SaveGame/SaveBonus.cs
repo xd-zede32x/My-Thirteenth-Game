@@ -1,5 +1,6 @@
 [System.Serializable]
-public class SaveShop
+public class SaveBonus 
 {
+    public int[] ConstBonus;
     public int[] PriceProduct;
 }

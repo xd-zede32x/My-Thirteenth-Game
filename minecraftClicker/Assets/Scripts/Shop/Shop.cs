@@ -1,14 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shop : MonoBehaviour
+public class Shop : IsPurchaseSuccessful
 {
-    [SerializeField] private Button _button;
+    [SerializeField] private MainButton _mainButton;
+    [SerializeField] private int[] _priceProduct;
     [SerializeField] private Text[] _priceText;
-    [SerializeField] private double[] _priceProduct;
-    [SerializeField] private AudioClip[] _audioClips;
 
-    private AudioSource _audioSource;
     private SaveShop _saveShop = new SaveShop();
 
     private void Awake()
@@ -25,69 +23,65 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void OnClickByPickaxeWooden()
     {
-        _audioSource = GetComponent<AudioSource>();
+        BuyPickaxe(0, 1);
     }
 
-    public void OnClickByWoodenPickaxe()
+    public void OnClickByPickaxeStone()
     {
-        IsBuyWooden(0, 1.1, 2);
+        BuyPickaxe(1, 2);
     }
 
-    public void OnClickByWoodenStone()
+    public void OnClickByPickaxeIron()
     {
-        IsBuyWooden(1, 1.2, 3);
+        BuyPickaxe(2, 3);
     }
 
-    public void OnClickByWoodenIron()
+    public void OnClickByPickaxeGolden()
     {
-        IsBuyWooden(2, 1.5, 4);
+        BuyPickaxe(3, 4);
     }
 
-    public void OnClickByWoodenGolden()
+    public void OnClickByPickaxeDiamond()
     {
-        IsBuyWooden(3, 2, 5);
+        BuyPickaxe(4, 5);
     }
 
-    public void OnClickByWoodenDiamond()
+    public void OnClickByPickaxeEtherate()
     {
-        IsBuyWooden(4, 2.3, 6);
+        BuyPickaxe(5, 6);
     }
 
-    public void OnClickByWoodenEtherate()
+    public void OnClickByPickaxeMagical()
     {
-        IsBuyWooden(5, 2.6, 7);
+        BuyPickaxe(6, 7);
     }
 
-    public void OnClickByWoodenMagical()
+    public void OnClickByPickaxeUndead()
     {
-        IsBuyWooden(6, 3, 8);
+        BuyPickaxe(7, 8);
     }
 
-    public void OnClickByWoodenUndead()
+    public void OnClickByPickaxeSpace()
     {
-        IsBuyWooden(7, 3.5, 9);
+        BuyPickaxe(8, 9);
     }
 
-    public void OnClickByWoodenSpace()
+    public void OnClickByPickaxeEndless()
     {
-        IsBuyWooden(8, 4, 10);
+        BuyPickaxe(9, 10);
     }
 
-    public void OnClickByWoodenEndless()
+    private void BuyPickaxe(int index, int increaseClicks, int productMultiplications = 2)
     {
-        IsBuyWooden(9, 5, 11);
-    }
-
-    private void IsBuyWooden(int index, double increaseClicks, double productMultiplications)
-    {
-        if (_button.Score >= _priceProduct[index])
+        if (_mainButton.Score >= _priceProduct[index])
         {
-            _button.Score -= _priceProduct[index];
+            _mainButton.Score -= _priceProduct[index];
             _priceProduct[index] *= productMultiplications;
-            _button.ClickScore *= increaseClicks;
+            _mainButton.ClickScore += increaseClicks;
             _priceText[index].text = _priceProduct[index] + "$";
+
             AudioPlayback(0);
         }
 
@@ -95,14 +89,9 @@ public class Shop : MonoBehaviour
             AudioPlayback(1);
     }
 
-    private void AudioPlayback(int index)
-    {
-        _audioSource.PlayOneShot(_audioClips[index]);
-    }
-
     private void OnApplicationQuit()
     {
-        _saveShop.PriceProduct = new double[10];
+        _saveShop.PriceProduct = new int[10];
 
         for (int index = 0; index < 10; index++)
             _saveShop.PriceProduct[index] = _priceProduct[index];
