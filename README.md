@@ -1,1 +1,1 @@
-![image](https://github.com/xd-zede32x/My-Thirteenth-Game/assets/125603037/9c65ae5c-4a70-4cf5-ad58-21e48bae428f)
+![image](https://github.com/xd-zede32x/My-Thirteenth-Game/assets/125603037/24e940db-042f-499e-bf5f-b1c57ea5f3f9)
