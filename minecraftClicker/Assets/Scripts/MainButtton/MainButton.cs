@@ -8,7 +8,6 @@ public class MainButton : MonoBehaviour
     [SerializeField] private Text[] _achievementsText;
     [SerializeField] private Text[] _achievementsConst;
     [SerializeField] private Text _achievementsClicksCount;
-    [SerializeField] private int _achievementsMax;
 
     public int Score
     {
@@ -22,6 +21,7 @@ public class MainButton : MonoBehaviour
     }
 
     private int _clickScore = 1;
+    private int _achievementsMax;
     private bool _isAchievements = true;
     private Save _save = new Save();
 
