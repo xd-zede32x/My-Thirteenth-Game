@@ -6,7 +6,7 @@ public class Bonus : IsPurchaseSuccessful
 {
     [SerializeField] private MainButton _mainButton;
     [SerializeField] private int[] _priceProduct;
-    [SerializeField] private int[] _constBonus;
+    [SerializeField] private int[] _passiveIncome;
     [SerializeField] private Text[] _priceText;
 
     private SaveBonus _saveBonus = new SaveBonus();
@@ -24,13 +24,22 @@ public class Bonus : IsPurchaseSuccessful
             }
 
             for (int index = 0; index < 8; index++)
-                _constBonus[index] = _saveBonus.ConstBonus[index];
+            {
+                _passiveIncome[index] = _saveBonus.PassiveIncome[index];
+            }
         }
     }
 
     private void Start()
     {
         StartCoroutine(BonusAccruals(0));
+        StartCoroutine(BonusAccruals(1));
+        StartCoroutine(BonusAccruals(2));
+        StartCoroutine(BonusAccruals(3));
+        StartCoroutine(BonusAccruals(4));
+        StartCoroutine(BonusAccruals(5));
+        StartCoroutine(BonusAccruals(6));
+        StartCoroutine(BonusAccruals(7));
     }
 
     public void BonusPlaceTrade()
@@ -73,41 +82,43 @@ public class Bonus : IsPurchaseSuccessful
         BuyBonus(7, 10);
     }
 
-    private void BuyBonus(int index, int accruals, int multiplied = 2)
+    private void BuyBonus(int index, int income, int multiplied = 2)
     {
         if (_mainButton.Score >= _priceProduct[index])
         {
             _mainButton.Score -= _priceProduct[index];
             _priceProduct[index] *= multiplied;
-            _constBonus[index] += accruals;
+            _passiveIncome[index] += income;
             _priceText[index].text = _priceProduct[index] + "$";
 
             AudioPlayback(0);
         }
 
         else
+        {
             AudioPlayback(1);
+        }
     }
 
     private IEnumerator BonusAccruals(int index)
     {
         while (true)
         {
-            _mainButton.Score += _constBonus[index];
-            yield return new WaitForSeconds(2);
+            _mainButton.Score += _passiveIncome[index];
+            yield return new WaitForSeconds(1.5f);
         }
     }
 
     private void OnApplicationQuit()
     {
         _saveBonus.PriceProduct = new int[8];
-        _saveBonus.ConstBonus = new int[8];
+        _saveBonus.PassiveIncome = new int[8];
 
         for (int index = 0; index < 8; index++)
             _saveBonus.PriceProduct[index] = _priceProduct[index];
 
         for (int index = 0; index < 8; index++)
-            _saveBonus.ConstBonus[index] = _constBonus[index];
+            _saveBonus.PassiveIncome[index] = _passiveIncome[index];
 
         PlayerPrefs.SetString("SaveBonus", JsonUtility.ToJson(_saveBonus));
     }

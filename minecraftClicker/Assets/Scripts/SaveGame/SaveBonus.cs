@@ -1,6 +1,6 @@
 [System.Serializable]
 public class SaveBonus 
 {
-    public int[] ConstBonus;
+    public int[] PassiveIncome;
     public int[] PriceProduct;
 }

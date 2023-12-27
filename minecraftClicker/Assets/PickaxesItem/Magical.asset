@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080d2b29e14261c46a25c9407a1814f4, type: 3}
+  m_Name: Magical
+  m_EditorClassIdentifier: 
+  _name: Buy a pickaxe Magical
+  _price: 2500
+  _increaseClicks: 7
+  _icon: {fileID: 21300000, guid: 103057fb079f10d4db491cf43a774b2c, type: 3}
