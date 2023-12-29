@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a7c04e2e5a73b4f8eb4a16f6579a91, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  _name: "Buy an End (\uFF61\u25D5\u203F\u25D5\uFF61)"
+  _price: 30000
+  _bonus: 10
+  _colorTextBonus: {r: 1, g: 0, b: 1, a: 1}

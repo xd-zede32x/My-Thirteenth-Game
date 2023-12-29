@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class PanelController : MonoBehaviour
 {
     [SerializeField] private Button _button;
-    [SerializeField] private AnimationPanels _panel;
     [SerializeField] private bool _isOpening;
+    [SerializeField] private AnimationPanels _panel;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class PanelController : MonoBehaviour
             _button.onClick.AddListener(() => _panel.IsHide());
     }
 
-    private void OnDestroy()
+    private void OnDestroy()    
     {
         if (_isOpening)
             _button.onClick.RemoveListener(() => _panel.IsOpen());

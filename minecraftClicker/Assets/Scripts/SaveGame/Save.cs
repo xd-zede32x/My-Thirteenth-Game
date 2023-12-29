@@ -1,9 +1,8 @@
 [System.Serializable]
 public class Save 
 {
+    public int BonusScore;
     public int Score;
-    public int[] ConstBonus;
     public int ClickScore;
-    public bool IsAchievement;
-    public int AchievementMax;
+    public int ClickCount;
 }
