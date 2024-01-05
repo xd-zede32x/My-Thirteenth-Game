@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b253f34edfd1f91468cb381e63762c69
+guid: bf5581d7865162a419d43880b3ccdfb6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -134,70 +134,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: ZombieAndHuman_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 226
-        width: 187
-        height: 274
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afc2fe269f20aef4b9c3aede28b1b518
-      internalID: 943709766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZombieAndHuman_1
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 102
-        width: 286
-        height: 398
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6263f2a1135215947aa8726b73e7bf83
-      internalID: -1838475821
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZombieAndHuman_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2
-        width: 269
-        height: 210
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ef6e421b56d2374cbd2c6725b462ce2
-      internalID: -1201163239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -208,10 +145,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ZombieAndHuman_0: 943709766
-      ZombieAndHuman_1: -1838475821
-      ZombieAndHuman_2: -1201163239
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
