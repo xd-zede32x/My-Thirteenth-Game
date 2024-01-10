@@ -12,16 +12,19 @@ public class MainButton : MonoBehaviour
         get { return _score; }
         set { _score = value; }
     }
+
     public int ClickScore
     {
         get { return _clickScore; }
         set { _clickScore = value; }
     }
+
     public int BonusScore
     {
         get { return _bonusScore; }
         set { _bonusScore = value; }
     }
+
     public int ClickCount => _clickCount;
 
     private int _clickCount;

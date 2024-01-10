@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class Audio : MonoBehaviour
 {
-    [SerializeField] private AudioSource[] _audioSources;
+    [SerializeField] private Text _text;
     [SerializeField] private Image _musicButton;
     [SerializeField] private Sprite _musicOn;
     [SerializeField] private Sprite _musicOff;
-    [SerializeField] private Text _text;
+    [SerializeField] private AudioSource[] _audioSources;
 
     public void OnClickMusicButton()
     {
