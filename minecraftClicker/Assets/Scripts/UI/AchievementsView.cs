@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class ViewAchievements : MonoBehaviour
+public class AchievementsView : MonoBehaviour
 {
     [SerializeField] private MainButton _mainButton;
     [SerializeField] private GameObject _template;

@@ -7,7 +7,7 @@ public class PickaxeButtonUI : ButtonUI
 
     public void Initialize(PickaxeButtonUIConfig config, View view)
     {
-        SetConfig(config);
+        SetConfig(config);  
         _data = GetButtonData();
         SetButtonParametrons(config);
 

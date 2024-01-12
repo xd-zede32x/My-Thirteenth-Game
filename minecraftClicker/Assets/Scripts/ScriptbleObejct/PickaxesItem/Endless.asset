@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Buy a pickaxe Endless
   _price: 10000
   _bonus: 10
-  _sprite: {fileID: 21300000, guid: af08c9e7f7ee24048baf46151355de59, type: 3}
+  _sprite: {fileID: 21300000, guid: 59cb2e4b5b80fc64ba4b799a34bd3d3f, type: 3}

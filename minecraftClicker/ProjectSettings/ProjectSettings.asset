@@ -425,7 +425,7 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
   m_TemplateCustomTags:
-    PRODUCT_DESCRIPTION: 100
+    PRODUCT_DESCRIPTION: Minicraft
   mobileMTRendering:
     Android: 1
     iPhone: 1

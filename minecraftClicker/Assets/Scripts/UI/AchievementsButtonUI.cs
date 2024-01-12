@@ -20,7 +20,7 @@ public class AchievementsButtonUI : MonoBehaviour
         _textAchievementName.text = $"Click {Mathf.Clamp(_mainButton.ClickCount, 0, _config.AchievementsClickCount)}/{_config.AchievementsClickCount} once";
     }
 
-    public void AddListenerButtonClicked(ViewAchievements view)
+    public void AddListenerButtonClicked(AchievementsView view)
     {
         _button.onClick.AddListener(() =>
         {
@@ -36,7 +36,7 @@ public class AchievementsButtonUI : MonoBehaviour
         });
     }
 
-    public void Initialize(AchievementsButtonUIConfig config, ViewAchievements view, MainButton mainButton)
+    public void Initialize(AchievementsButtonUIConfig config, AchievementsView view, MainButton mainButton)
     {
         _config = config;
         _mainButton = mainButton;
