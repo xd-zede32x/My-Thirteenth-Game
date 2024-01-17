@@ -9,12 +9,6 @@ public class BackgroundView : MonoBehaviour
     [SerializeField] private Image _defaultBackground;
     [SerializeField] private List<BackgroundButtonUIConfig> _configs;
 
-    public Image DefaultBackground
-    {
-        get { return _defaultBackground; }
-        set { _defaultBackground = value; }
-    }
-
     private List<BackgroundButtonUI> _buttons = new List<BackgroundButtonUI>();
 
     private void Awake()
@@ -26,5 +20,13 @@ public class BackgroundView : MonoBehaviour
             _buttons.Add(backgroundButton);
             backgroundButton.Initialize(config, this);
         }
+    }
+
+    public void SetBackground(Sprite sprite)
+    {
+        if (sprite == null)
+            return;
+
+        _defaultBackground.sprite = sprite;
     }
 }

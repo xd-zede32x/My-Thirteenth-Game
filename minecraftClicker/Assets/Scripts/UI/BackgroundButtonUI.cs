@@ -33,7 +33,7 @@ public class BackgroundButtonUI : MonoBehaviour
     {
         _button.onClick.AddListener(() =>
         {
-            view.DefaultBackground.sprite = _background.sprite;
+            view.SetBackground(_background.sprite);
         });
     }
 

@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 [CreateAssetMenu(menuName = "Background", fileName = "Item", order = 51)]
 public class BackgroundButtonUIConfig : ScriptableObject
